@@ -2,5 +2,6 @@
 <resources>
     <dimen name="pagePadding">20dp</dimen>
     <dimen name="cardRadius">28dp</dimen>
+    <dimen name="fieldRadius">16dp</dimen>
 
 </resources>

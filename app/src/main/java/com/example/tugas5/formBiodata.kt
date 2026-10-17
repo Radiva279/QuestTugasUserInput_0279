@@ -184,4 +184,135 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                             )
                         )
                     }
+
+                    // Email
+                    OutlinedTextField(
+                        value = email,
+                        onValueChange = { email = it },
+                        modifier = Modifier.fillMaxWidth(),
+                        label = {
+                            Text(stringResource(R.string.email), fontSize = 12.sp)
+                        },
+                        singleLine = true,
+                        keyboardOptions = KeyboardOptions(
+                            keyboardType = KeyboardType.Email
+                        ),
+                        shape = RoundedCornerShape(
+                            dimensionResource(R.dimen.fieldRadius)
+                        ),
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = ungu,
+                            unfocusedBorderColor = warnaBorder
+                        )
+                    )
+
+                    // Tgl Lahir & Experience
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        // Tgl Lahir
+                        OutlinedTextField(
+                            value = tanggalLahir,
+                            onValueChange = {},
+                            readOnly = true,
+                            enabled = false,
+                            textStyle = TextStyle(fontSize = 12.sp),
+                            modifier = Modifier
+                                .weight(1f)
+                                .clickable { kalenderBuka = true },
+                            label = {
+                                Text(
+                                    stringResource(R.string.birthDate),
+                                    fontSize = 10.sp,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            },
+                            placeholder = {
+                                Text(stringResource(R.string.birthDateHint), fontSize = 10.sp)
+                            },
+                            trailingIcon = {
+                                Text(
+                                    "📅",
+                                    fontSize = 12.sp,
+                                    modifier = Modifier
+                                        .padding(end = 2.dp)
+                                        .clickable { kalenderBuka = true }
+                                )
+                            },
+                            singleLine = true,
+                            shape = RoundedCornerShape(
+                                dimensionResource(R.dimen.fieldRadius)
+                            ),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                disabledTextColor = warnaTeks,
+                                disabledBorderColor = warnaBorder,
+                                disabledLabelColor = warnaSekunder
+                            )
+                        )
+
+                        // Experience
+                        Box(modifier = Modifier.weight(1f)) {
+                            OutlinedTextField(
+                                value = pengalaman,
+                                onValueChange = {},
+                                readOnly = true,
+                                enabled = false,
+                                textStyle = TextStyle(fontSize = 12.sp),
+                                modifier = Modifier.fillMaxWidth(),
+                                label = {
+                                    Text(
+                                        stringResource(R.string.experience),
+                                        fontSize = 10.sp, // Font dipastiin cukup kecil agar muat 1 baris
+                                        maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis
+                                    )
+                                },
+                                trailingIcon = {
+                                    Text(
+                                        "▼",
+                                        color = warnaTeks,
+                                        fontSize = 10.sp,
+                                        modifier = Modifier.padding(end = 2.dp)
+                                    )
+                                },
+                                singleLine = true,
+                                shape = RoundedCornerShape(
+                                    dimensionResource(R.dimen.fieldRadius)
+                                ),
+                                colors = OutlinedTextFieldDefaults.colors(
+                                    disabledTextColor = warnaTeks,
+                                    disabledBorderColor = warnaBorder,
+                                    disabledLabelColor = warnaSekunder
+                                )
+                            )
+
+                            Box(
+                                modifier = Modifier
+                                    .matchParentSize()
+                                    .clickable {
+                                        dropdownBuka = true
+                                    }
+                            )
+
+                            DropdownMenu(
+                                expanded = dropdownBuka,
+                                onDismissRequest = {
+                                    dropdownBuka = false
+                                }
+                            ) {
+                                pilihanPengalaman.forEach { pilihan ->
+                                    DropdownMenuItem(
+                                        text = { Text(pilihan, fontSize = 12.sp) },
+                                        onClick = {
+                                            pengalaman = pilihan
+                                            dropdownBuka = false
+                                        }
+                                    )
+                                }
+                            }
+                        }
+                    }
 }

@@ -9,5 +9,7 @@
     <dimen name="cardElevation">14dp</dimen>
     <dimen name="cardPadding">28dp</dimen>
     <dimen name="headerHeight">260dp</dimen>
+    <dimen name="titleSize">28sp</dimen>
+    <dimen name="subtitleSize">12sp</dimen>
 
 </resources>

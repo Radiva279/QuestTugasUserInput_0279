@@ -4,5 +4,6 @@
     <dimen name="cardRadius">28dp</dimen>
     <dimen name="fieldRadius">16dp</dimen>
     <dimen name="fieldHeight">58dp</dimen>
+    <dimen name="fieldSpacing">16dp</dimen>
 
 </resources>

@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <dimen name="pagePadding">20dp</dimen>
+    <dimen name="cardRadius">28dp</dimen>
+
+</resources>

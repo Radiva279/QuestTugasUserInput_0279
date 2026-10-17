@@ -11,5 +11,9 @@
     <string name="experienceOne">1 Tahun</string>
     <string name="experienceTwo">2 Tahun</string>
     <string name="experienceMore">Lebih dari 2 Tahun</string>
+    <string name="skillTitle">Pilih Skill Anda :</string>
+    <string name="skillAndroid">Android</string>
+    <string name="skillUiux">UI/UX</string>
+    <string name="skillWeb">Web</string>
 
 </resources>

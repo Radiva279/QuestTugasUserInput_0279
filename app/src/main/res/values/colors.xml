@@ -13,5 +13,7 @@
     <color name="surfaceWhite">#FFFFFF</color>
     <color name="textPrimary">#28252D</color>
     <color name="textSecondary">#96939C</color>
-
+    <color name="borderColor">#A6A3AD</color>
+    <color name="disabledColor">#E2E0E4</color>
+    <color name="shadowColor">#33000000</color>
 </resources>

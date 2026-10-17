@@ -6,5 +6,7 @@
     <dimen name="fieldHeight">58dp</dimen>
     <dimen name="fieldSpacing">16dp</dimen>
     <dimen name="horizontalSpacing">10dp</dimen>
+    <dimen name="cardElevation">14dp</dimen>
+    <dimen name="cardPadding">28dp</dimen>
 
 </resources>

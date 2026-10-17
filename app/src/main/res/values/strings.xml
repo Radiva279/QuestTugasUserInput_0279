@@ -7,5 +7,9 @@
     <string name="email">Email</string>
     <string name="birthDate">Tgl Lahir</string>
     <string name="birthDateHint">Pilih tanggal lahir</string>
+    <string name="experience">Experience</string>
+    <string name="experienceOne">1 Tahun</string>
+    <string name="experienceTwo">2 Tahun</string>
+    <string name="experienceMore">Lebih dari 2 Tahun</string>
 
 </resources>

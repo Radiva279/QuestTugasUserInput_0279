@@ -315,4 +315,225 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                             }
                         }
                     }
+
+                    Text(
+                        text = stringResource(R.string.skillTitle),
+                        color = warnaTeks,
+                        fontSize = dimensionResource(R.dimen.labelSize).value.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Box(modifier = Modifier.weight(1f)) {
+                            SkillItem(
+                                label = teksAndroid,
+                                checked = skillAndroid,
+                                onCheckedChange = { skillAndroid = it },
+                                tint = ungu
+                            )
+                        }
+
+                        Box(modifier = Modifier.weight(1f)) {
+                            SkillItem(
+                                label = teksUiux,
+                                checked = skillUiux,
+                                onCheckedChange = { skillUiux = it },
+                                tint = ungu
+                            )
+                        }
+
+                        Box(modifier = Modifier.weight(1f)) {
+                            SkillItem(
+                                label = teksWeb,
+                                checked = skillWeb,
+                                onCheckedChange = { skillWeb = it },
+                                tint = ungu
+                            )
+                        }
+                    }
+
+                    Button(
+                        onClick = {
+                            dataValid =
+                                namaDepan.isNotBlank() &&
+                                        namaBelakang.isNotBlank() &&
+                                        Patterns.EMAIL_ADDRESS.matcher(email).matches() &&
+                                        tanggalLahir.isNotBlank() &&
+                                        pengalaman.isNotBlank() &&
+                                        (skillAndroid || skillUiux || skillWeb)
+
+                            if (dataValid) {
+                                hasilSkill = listOfNotNull(
+                                    if (skillAndroid) teksAndroid else null,
+                                    if (skillUiux) teksUiux else null,
+                                    if (skillWeb) teksWeb else null
+                                ).joinToString(", ")
+                            }
+
+                            popupBuka = true
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(dimensionResource(R.dimen.buttonHeight)),
+                        enabled = namaDepan.isNotBlank() &&
+                                namaBelakang.isNotBlank() &&
+                                email.isNotBlank() &&
+                                tanggalLahir.isNotBlank() &&
+                                pengalaman.isNotBlank() &&
+                                (skillAndroid || skillUiux || skillWeb),
+                        shape = RoundedCornerShape(
+                            dimensionResource(R.dimen.fieldRadius)
+                        ),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = ungu,
+                            disabledContainerColor = warnaNonaktif,
+                            disabledContentColor = putih
+                        )
+                    ) {
+                        Text(stringResource(R.string.proceed))
+                    }
+                }
+            }
+        }
+
+        if (kalenderBuka) {
+            val stateKalender = rememberDatePickerState()
+
+            DatePickerDialog(
+                onDismissRequest = { kalenderBuka = false },
+                confirmButton = {
+                    TextButton(
+                        onClick = {
+                            stateKalender.selectedDateMillis?.let { millis ->
+                                tanggalLahir = SimpleDateFormat(
+                                    "dd-MM-yyyy",
+                                    Locale.getDefault()
+                                ).format(Date(millis))
+                            }
+                            kalenderBuka = false
+                        }
+                    ) {
+                        Text(teksOk)
+                    }
+                },
+                dismissButton = {
+                    TextButton(
+                        onClick = { kalenderBuka = false }
+                    ) {
+                        Text("Batal")
+                    }
+                }
+            ) {
+                DatePicker(state = stateKalender)
+            }
+        }
+
+        if (popupBuka) {
+            Dialog(onDismissRequest = { popupBuka = false }) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(18.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = putih
+                    )
+                ) {
+                    Column(
+                        modifier = Modifier.padding(22.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+                        Text(
+                            text = if (dataValid) {
+                                stringResource(R.string.submitSuccess)
+                            } else {
+                                stringResource(R.string.submitError)
+                            },
+                            color = warnaTeks,
+                            fontWeight = FontWeight.Bold
+                        )
+
+                        if (dataValid) {
+                            HorizontalDivider(color = warnaBorder)
+
+                            Text(
+                                stringResource(R.string.resultTitle),
+                                color = ungu
+                            )
+                            Text(
+                                stringResource(
+                                    R.string.resultName,
+                                    namaDepan,
+                                    namaBelakang
+                                ),
+                                color = warnaTeks
+                            )
+                            Text(
+                                stringResource(R.string.resultEmail, email),
+                                color = warnaTeks
+                            )
+                            Text(
+                                stringResource(
+                                    R.string.resultBirthDate,
+                                    tanggalLahir
+                                ),
+                                color = warnaTeks
+                            )
+                            Text(
+                                stringResource(
+                                    R.string.resultExperience,
+                                    pengalaman
+                                ),
+                                color = warnaTeks
+                            )
+                            Text(
+                                stringResource(
+                                    R.string.resultSkills,
+                                    hasilSkill
+                                ),
+                                color = warnaTeks
+                            )
+                        }
+
+                        TextButton(onClick = { popupBuka = false }) {
+                            Text(teksOk, color = ungu)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SkillItem(
+    label: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    tint: Color
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.clickable {
+            onCheckedChange(!checked)
+        }
+    ) {
+        Checkbox(
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+            modifier = Modifier.size(32.dp),
+            colors = CheckboxDefaults.colors(
+                checkedColor = tint
+            )
+        )
+
+        Text(
+            text = label,
+            fontSize = 11.sp,
+            maxLines = 1
+        )
+    }
 }

@@ -4,5 +4,6 @@
     <string name="formSubtitle">Silahkan isi biodata Anda dibawah ini !!!</string>
     <string name="firstName">Nama Depan</string>
     <string name="lastName">Nama Belakang</string>
+    <string name="email">Email</string>
 
 </resources>

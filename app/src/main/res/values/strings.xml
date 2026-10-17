@@ -5,5 +5,7 @@
     <string name="firstName">Nama Depan</string>
     <string name="lastName">Nama Belakang</string>
     <string name="email">Email</string>
+    <string name="birthDate">Tgl Lahir</string>
+    <string name="birthDateHint">Pilih tanggal lahir</string>
 
 </resources>

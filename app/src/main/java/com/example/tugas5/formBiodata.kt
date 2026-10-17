@@ -84,3 +84,55 @@ fun FormBiodata(modifier: Modifier = Modifier) {
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
+
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(
+                    horizontal = dimensionResource(R.dimen.pagePadding),
+                    vertical = 16.dp
+                ),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .shadow(
+                        elevation = 16.dp,
+                        shape = RoundedCornerShape(dimensionResource(R.dimen.cardRadius)),
+                        clip = false
+                    ),
+                shape = RoundedCornerShape(
+                    dimensionResource(R.dimen.cardRadius)
+                ),
+                colors = CardDefaults.cardColors(
+                    containerColor = putih
+                ),
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 0.dp
+                )
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 22.dp, vertical = 22.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Text(
+                        text = stringResource(R.string.formTitle),
+                        modifier = Modifier.fillMaxWidth(),
+                        color = ungu,
+                        fontSize = dimensionResource(R.dimen.titleSize).value.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center
+                    )
+
+                    Text(
+                        text = stringResource(R.string.formSubtitle),
+                        modifier = Modifier.fillMaxWidth(),
+                        color = warnaSekunder,
+                        fontSize = dimensionResource(R.dimen.subtitleSize).value.sp,
+                        textAlign = TextAlign.Center
+                    )

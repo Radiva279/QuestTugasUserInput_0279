@@ -136,3 +136,52 @@ fun FormBiodata(modifier: Modifier = Modifier) {
                         fontSize = dimensionResource(R.dimen.subtitleSize).value.sp,
                         textAlign = TextAlign.Center
                     )
+
+                    // Nama Depan & Nama Belakang
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        OutlinedTextField(
+                            value = namaDepan,
+                            onValueChange = { namaDepan = it },
+                            modifier = Modifier.weight(1f),
+                            label = {
+                                Text(
+                                    stringResource(R.string.firstName),
+                                    fontSize = 11.sp,
+                                    maxLines = 1
+                                )
+                            },
+                            singleLine = true,
+                            shape = RoundedCornerShape(
+                                dimensionResource(R.dimen.fieldRadius)
+                            ),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = ungu,
+                                unfocusedBorderColor = warnaBorder
+                            )
+                        )
+
+                        OutlinedTextField(
+                            value = namaBelakang,
+                            onValueChange = { namaBelakang = it },
+                            modifier = Modifier.weight(1f),
+                            label = {
+                                Text(
+                                    stringResource(R.string.lastName),
+                                    fontSize = 11.sp,
+                                    maxLines = 1
+                                )
+                            },
+                            singleLine = true,
+                            shape = RoundedCornerShape(
+                                dimensionResource(R.dimen.fieldRadius)
+                            ),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = ungu,
+                                unfocusedBorderColor = warnaBorder
+                            )
+                        )
+                    }
+}

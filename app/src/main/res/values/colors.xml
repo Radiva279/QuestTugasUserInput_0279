@@ -11,5 +11,7 @@
     <color name="primaryPurple">#7545C5</color>
     <color name="backgroundColor">#F4F1F8</color>
     <color name="surfaceWhite">#FFFFFF</color>
+    <color name="textPrimary">#28252D</color>
+    <color name="textSecondary">#96939C</color>
 
 </resources>

@@ -18,5 +18,11 @@
     <string name="proceed">Proceed</string>
     <string name="submitSuccess">Biodata berhasil dikirim!</string>
     <string name="submitError">Mohon lengkapi data dan periksa email.</string>
+    <string name="resultTitle">Biodata Anda</string>
+    <string name="resultName">Nama: %1$s %2$s</string>
+    <string name="resultEmail">Email: %1$s</string>
+    <string name="resultBirthDate">Tanggal lahir: %1$s</string>
+    <string name="resultExperience">Pengalaman: %1$s</string>
+    <string name="resultSkills">Skill: %1$s</string>
 
 </resources>

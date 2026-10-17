@@ -32,3 +32,41 @@ import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun FormBiodata(modifier: Modifier = Modifier) {
+    var namaDepan by remember { mutableStateOf("") }
+    var namaBelakang by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var tanggalLahir by remember { mutableStateOf("") }
+    var pengalaman by remember { mutableStateOf("") }
+
+    var skillAndroid by remember { mutableStateOf(false) }
+    var skillUiux by remember { mutableStateOf(false) }
+    var skillWeb by remember { mutableStateOf(false) }
+
+    var dropdownBuka by remember { mutableStateOf(false) }
+    var kalenderBuka by remember { mutableStateOf(false) }
+    var popupBuka by remember { mutableStateOf(false) }
+    var dataValid by remember { mutableStateOf(false) }
+    var hasilSkill by remember { mutableStateOf("") }
+
+    val ungu = colorResource(R.color.primaryPurple)
+    val putih = colorResource(R.color.surfaceWhite)
+    val warnaTeks = colorResource(R.color.textPrimary)
+    val warnaSekunder = colorResource(R.color.textSecondary)
+    val warnaBorder = colorResource(R.color.borderColor)
+    val warnaNonaktif = colorResource(R.color.disabledColor)
+
+    val pilihanPengalaman = listOf(
+        stringResource(R.string.experienceOne),
+        stringResource(R.string.experienceTwo),
+        stringResource(R.string.experienceMore)
+    )
+
+    val teksAndroid = stringResource(R.string.skillAndroid)
+    val teksUiux = stringResource(R.string.skillUiux)
+    val teksWeb = stringResource(R.string.skillWeb)
+    val teksOk = stringResource(R.string.dialogOk)
+

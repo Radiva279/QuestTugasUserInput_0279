@@ -11,5 +11,6 @@
     <dimen name="headerHeight">260dp</dimen>
     <dimen name="titleSize">28sp</dimen>
     <dimen name="subtitleSize">12sp</dimen>
+    <dimen name="labelSize">14sp</dimen>
 
 </resources>

@@ -70,3 +70,17 @@ fun FormBiodata(modifier: Modifier = Modifier) {
     val teksWeb = stringResource(R.string.skillWeb)
     val teksOk = stringResource(R.string.dialogOk)
 
+    LaunchedEffect(popupBuka) {
+        if (popupBuka) {
+            delay(5000)
+            popupBuka = false
+        }
+    }
+
+    Box(modifier = modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(R.drawable.bg_neon),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )

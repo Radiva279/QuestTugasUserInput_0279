@@ -24,5 +24,6 @@
     <string name="resultBirthDate">Tanggal lahir: %1$s</string>
     <string name="resultExperience">Pengalaman: %1$s</string>
     <string name="resultSkills">Skill: %1$s</string>
-
+    <string name="dialogOk">OK</string>
+    <string name="dropdownArrow">▾</string>
 </resources>

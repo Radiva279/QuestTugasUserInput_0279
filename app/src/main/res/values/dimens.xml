@@ -12,5 +12,6 @@
     <dimen name="titleSize">28sp</dimen>
     <dimen name="subtitleSize">12sp</dimen>
     <dimen name="labelSize">14sp</dimen>
-
+    <dimen name="buttonHeight">54dp</dimen>
+    <dimen name="bottomSpacing">24dp</dimen>
 </resources>

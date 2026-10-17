@@ -15,5 +15,8 @@
     <string name="skillAndroid">Android</string>
     <string name="skillUiux">UI/UX</string>
     <string name="skillWeb">Web</string>
+    <string name="proceed">Proceed</string>
+    <string name="submitSuccess">Biodata berhasil dikirim!</string>
+    <string name="submitError">Mohon lengkapi data dan periksa email.</string>
 
 </resources>
